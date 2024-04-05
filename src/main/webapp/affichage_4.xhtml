@@ -6,18 +6,20 @@
       xmlns:f="jakarta.faces.core">
     <h:head>
         <f:metadata>
-            <f:viewParam name="nb" value="#{bean.nombre}"/>
+            <f:viewParam name="nb" value="#{myBean.nombre}"/>
         </f:metadata>
-        <title>Application&gt;affichage_3</title>
+        <title>Application&gt;affichage_4</title>
     </h:head>
 
     <h:body>
-        <h1>Application&gt;affichage_3</h1>
+        <h1>Application&gt;affichage_4</h1>
         Les nombres : <br/>
-        <ui:repeat value="#{bean.nombresSuivants}" var="n" varStatus="status">
+        <ui:repeat value="#{myBean.nombresSuivants}" var="n" varStatus="status">
             #{n + 1}#{! status.last ? ', ' : ''}
         </ui:repeat>
-        <h:link outcome="formulaire_3" value="Saisir un autre nombre"/>
+        <h:link outcome="formulaire_4" value="Saisir un autre nombre">
+            <f:param name="lastNb" value="#{myBean.nombre}"/>
+        </h:link>
         <!-- 
         <h:form>
             <h:commandLink action="formulaire_1" value="Saisir un autre nombre"/>
